@@ -1,6 +1,7 @@
 from rest_framework import generics
 from .models import Ticket, Comentario
 from .serializers import TicketSerializer, ComentarioSerializer
+from .filters import TicketFilter
 
 
 class TicketListCreateView(generics.ListCreateAPIView):
@@ -8,7 +9,7 @@ class TicketListCreateView(generics.ListCreateAPIView):
        POST /api/tickets/ -> crear"""
     queryset = Ticket.objects.all()
     serializer_class = TicketSerializer
-    filterset_fields = ['estado', 'prioridad', 'categoria']
+    filterset_class = TicketFilter
 
 
 class TicketDetailView(generics.RetrieveUpdateAPIView):
