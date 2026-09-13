@@ -1,9 +1,5 @@
 from django.db import models
 
-# tickets/models.py
-from django.db import models
-
-
 class Ticket(models.Model):
     class Prioridad(models.TextChoices):
         BAJA = 'BAJA', 'Baja'
