@@ -19,9 +19,14 @@ class TicketDetailView(generics.RetrieveUpdateAPIView):
     serializer_class = TicketSerializer
 
 
-class ComentarioCreateView(generics.CreateAPIView):
+class ComentarioCreateView(generics.ListCreateAPIView):
     """POST /api/tickets/<ticket_id>/comentarios/ -> agregar comentario"""
+    queryset = Comentario.objects.all()
     serializer_class = ComentarioSerializer
 
     def perform_create(self, serializer):
         serializer.save(ticket_id=self.kwargs['ticket_id'])
+
+class ComentarioDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Comentario.objects.all()
+    serializer_class = ComentarioSerializer
