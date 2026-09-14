@@ -12,7 +12,7 @@ class TicketListCreateView(generics.ListCreateAPIView):
     filterset_class = TicketFilter
 
 
-class TicketDetailView(generics.RetrieveUpdateAPIView):
+class TicketDetailView(generics.RetrieveUpdateDestroyAPIView):
     """GET /api/tickets/<id>/   -> detalle del ticket
        PATCH /api/tickets/<id>/ -> actualizar ticket por estado o prioridad"""
     queryset = Ticket.objects.all()
