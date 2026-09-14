@@ -1,4 +1,16 @@
 from django.db import models
+from django.contrib.auth.models import User
+
+class Perfil(models.Model):
+    class Rol(models.TextChoices):
+        AGENTE = 'AGENTE', 'Agente'
+        SOLICITANTE = 'SOLICITANTE', 'Solicitante'
+
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='perfil')
+    rol = models.CharField(max_length=20, choices=Rol.choices, default=Rol.SOLICITANTE)
+
+    def __str__(self):
+        return f"{self.user.username} ({self.rol})"
 
 class Ticket(models.Model):
     class Prioridad(models.TextChoices):
@@ -19,6 +31,13 @@ class Ticket(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    creado_por = models.ForeignKey(
+        User, 
+        on_delete=models.CASCADE, 
+        related_name='tickets_creados',
+        null=True, blank=True 
+    )
+
     def __str__(self):
         return f"[{self.id}] {self.titulo}"
 
@@ -31,3 +50,5 @@ class Comentario(models.Model):
 
     def __str__(self):
         return f"Comentario #{self.id} de Ticket {self.ticket_id}"
+
+

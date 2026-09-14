@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'tickets',
     'django_filters',
+    'rest_framework_simplejwt',
 ]
 
 REST_FRAMEWORK = {
