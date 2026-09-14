@@ -1,10 +1,14 @@
 
 export default function ComentarioItem({ comentario }) {
   return (
-    <li>
-      <strong>{comentario.titulo}</strong>
-      <p>{comentario.descripcion}</p>
-      <small>{new Date(comentario.fecha_registro).toLocaleString()}</small>
-    </li>
+    <article className="comment-item">
+      <div className="comment-item__header">
+        <strong className="comment-item__title">{comentario.titulo}</strong>
+        <time className="comment-item__date" dateTime={comentario.fecha_registro}>
+          {new Date(comentario.fecha_registro).toLocaleString()}
+        </time>
+      </div>
+      <p className="comment-item__body">{comentario.descripcion}</p>
+    </article>
   )
 }

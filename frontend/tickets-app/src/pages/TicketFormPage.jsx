@@ -1,7 +1,7 @@
-// src/pages/TicketFormPage.jsx
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { createTicket } from '../api/ticketService'
+import Alert from '../components/ui/Alert'
 
 const initialState = {
   titulo: '',
@@ -28,63 +28,84 @@ export default function TicketFormPage() {
 
     try {
       const response = await createTicket(form)
-      navigate(`/tickets/${response.data.id}`) // redirige al detalle del ticket recién creado
+      navigate(`/tickets/${response.data.id}`)
     } catch (err) {
-      setError('No se pudo crear el ticket. Revisa los campos: ' + err.message)
+      setError('No se pudo crear el ticket. Revisa los campos e intenta de nuevo.')
     } finally {
       setSubmitting(false)
     }
   }
 
   return (
-    <div>
-      <h1>Nuevo ticket</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Título</label>
-          <input
-            name="titulo"
-            value={form.titulo}
-            onChange={handleChange}
-            required
-          />
+    <div className="page">
+      <Link to="/" className="back-link">← Volver al listado</Link>
+
+      <div className="page__header">
+        <div className="page__header-text">
+          <h1>Nuevo ticket</h1>
+          <p>Describe tu solicitud para que el equipo de soporte pueda atenderla.</p>
         </div>
+      </div>
 
-        <div>
-          <label>Descripción</label>
-          <textarea
-            name="descripcion"
-            value={form.descripcion}
-            onChange={handleChange}
-            required
-          />
-        </div>
+      <div className="card" style={{ maxWidth: '640px' }}>
+        <form className="form" onSubmit={handleSubmit}>
+          <div className="form__group">
+            <label htmlFor="titulo">Título</label>
+            <input
+              id="titulo"
+              name="titulo"
+              value={form.titulo}
+              onChange={handleChange}
+              placeholder="Resumen breve del problema"
+              required
+            />
+          </div>
 
-        <div>
-          <label>Categoría</label>
-          <input
-            name="categoria"
-            value={form.categoria}
-            onChange={handleChange}
-            required
-          />
-        </div>
+          <div className="form__group">
+            <label htmlFor="descripcion">Descripción</label>
+            <textarea
+              id="descripcion"
+              name="descripcion"
+              value={form.descripcion}
+              onChange={handleChange}
+              placeholder="Detalla tu solicitud con la mayor información posible..."
+              required
+            />
+          </div>
 
-        <div>
-          <label>Prioridad</label>
-          <select name="prioridad" value={form.prioridad} onChange={handleChange}>
-            <option value="BAJA">Baja</option>
-            <option value="MEDIA">Media</option>
-            <option value="ALTA">Alta</option>
-          </select>
-        </div>
+          <div className="form__row">
+            <div className="form__group">
+              <label htmlFor="categoria">Categoría</label>
+              <input
+                id="categoria"
+                name="categoria"
+                value={form.categoria}
+                onChange={handleChange}
+                placeholder="Ej. Hardware, Software, Red"
+                required
+              />
+            </div>
 
-        {error && <p>{error}</p>}
+            <div className="form__group">
+              <label htmlFor="prioridad">Prioridad</label>
+              <select id="prioridad" name="prioridad" value={form.prioridad} onChange={handleChange}>
+                <option value="BAJA">Baja</option>
+                <option value="MEDIA">Media</option>
+                <option value="ALTA">Alta</option>
+              </select>
+            </div>
+          </div>
 
-        <button type="submit" disabled={submitting}>
-          {submitting ? 'Creando...' : 'Crear ticket'}
-        </button>
-      </form>
+          {error && <Alert variant="error">{error}</Alert>}
+
+          <div className="page__actions">
+            <button type="submit" className="btn btn--primary" disabled={submitting}>
+              {submitting ? 'Creando...' : 'Crear ticket'}
+            </button>
+            <Link to="/" className="btn btn--secondary">Cancelar</Link>
+          </div>
+        </form>
+      </div>
     </div>
   )
 }

@@ -1,11 +1,13 @@
 
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { getTicket, updateTicket, getComentarios, createComentario } from '../api/ticketService'
 import TicketInfo from '../components/TicketInfo'
 import TicketActions from '../components/TicketActions'
 import ComentarioList from '../components/ComentarioList'
 import ComentarioForm from '../components/ComentarioForm'
+import Alert from '../components/ui/Alert'
+import LoadingSpinner from '../components/ui/LoadingSpinner'
 
 export default function TicketDetailPage() {
   const { id } = useParams()
@@ -34,24 +36,54 @@ export default function TicketDetailPage() {
 
   const handleUpdate = async (changes) => {
     const res = await updateTicket(id, changes)
-    setTicket(res.data) // refresca solo el ticket, sin recargar toda la página
+    setTicket(res.data)
   }
 
   const handleNewComentario = async (data) => {
     await createComentario(id, data)
-    loadComentarios() // vuelve a pedir comentarios actualizados
+    loadComentarios()
   }
 
-  if (loading) return <p>Cargando...</p>
-  if (error) return <p>{error}</p>
+  if (loading) {
+    return (
+      <div className="page">
+        <LoadingSpinner message="Cargando ticket..." />
+      </div>
+    )
+  }
+
+  if (error) {
+    return (
+      <div className="page">
+        <Alert variant="error">{error}</Alert>
+        <Link to="/" className="btn btn--secondary">Volver al listado</Link>
+      </div>
+    )
+  }
+
   if (!ticket) return null
 
   return (
-    <div>
-      <TicketInfo ticket={ticket} />
-      <TicketActions ticket={ticket} onUpdate={handleUpdate} />
-      <ComentarioList comentarios={comentarios} />
-      <ComentarioForm onSubmit={handleNewComentario} />
+    <div className="page ticket-detail">
+      <Link to="/" className="back-link">← Volver al listado</Link>
+
+      <div className="ticket-detail__grid">
+        <div className="ticket-detail__main">
+          <TicketInfo ticket={ticket} />
+
+          <div className="card comments">
+            <div className="card__header">
+              <h2 className="card__title">Comentarios ({comentarios.length})</h2>
+            </div>
+            <ComentarioList comentarios={comentarios} />
+            <ComentarioForm onSubmit={handleNewComentario} />
+          </div>
+        </div>
+
+        <aside>
+          <TicketActions ticket={ticket} onUpdate={handleUpdate} />
+        </aside>
+      </div>
     </div>
   )
 }

@@ -1,0 +1,90 @@
+import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react'
+import * as authService from '../api/authService'
+import { ROLES } from '../utils/constants'
+
+const AuthContext = createContext(null)
+
+const TOKEN_KEY = 'tickets_access_token'
+const USER_KEY = 'tickets_user'
+
+export function AuthProvider({ children }) {
+  const [user, setUser] = useState(() => {
+    const stored = localStorage.getItem(USER_KEY)
+    return stored ? JSON.parse(stored) : null
+  })
+  const [token, setToken] = useState(() => localStorage.getItem(TOKEN_KEY))
+  const [loading, setLoading] = useState(!!localStorage.getItem(TOKEN_KEY))
+
+  const persistSession = useCallback((accessToken, userData) => {
+    localStorage.setItem(TOKEN_KEY, accessToken)
+    localStorage.setItem(USER_KEY, JSON.stringify(userData))
+    setToken(accessToken)
+    setUser(userData)
+  }, [])
+
+  const clearSession = useCallback(() => {
+    localStorage.removeItem(TOKEN_KEY)
+    localStorage.removeItem(USER_KEY)
+    setToken(null)
+    setUser(null)
+  }, [])
+
+  useEffect(() => {
+    if (!token) {
+      setLoading(false)
+      return
+    }
+
+    authService.getCurrentUser()
+      .then((res) => {
+        setUser(res.data)
+        localStorage.setItem(USER_KEY, JSON.stringify(res.data))
+      })
+      .catch(() => clearSession())
+      .finally(() => setLoading(false))
+  }, [token, clearSession])
+
+  const login = async (credentials) => {
+    const res = await authService.login(credentials)
+    persistSession(res.data.access, res.data.user)
+    return res.data.user
+  }
+
+  const register = async (data) => {
+    const res = await authService.register(data)
+    persistSession(res.data.access, res.data.user)
+    return res.data.user
+  }
+
+  const logout = async () => {
+    try {
+      await authService.logout()
+    } catch {
+      // Ignorar si el backend aún no implementa logout
+    } finally {
+      clearSession()
+    }
+  }
+
+  const value = useMemo(() => ({
+    user,
+    token,
+    loading,
+    isAuthenticated: !!user,
+    isAgente: user?.role === ROLES.AGENTE,
+    isSolicitante: user?.role === ROLES.SOLICITANTE,
+    login,
+    register,
+    logout,
+  }), [user, token, loading, persistSession, clearSession])
+
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
+}
+
+export function useAuth() {
+  const context = useContext(AuthContext)
+  if (!context) {
+    throw new Error('useAuth debe usarse dentro de AuthProvider')
+  }
+  return context
+}
