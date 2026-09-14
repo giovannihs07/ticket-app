@@ -1,7 +1,8 @@
-from rest_framework import generics
+from rest_framework import generics, permissions
 from .models import Ticket, Comentario
-from .serializers import TicketSerializer, ComentarioSerializer
+from .serializers import TicketSerializer, ComentarioSerializer, RegistroSerializer
 from .filters import TicketFilter
+from django.contrib.auth.models import User
 
 
 class TicketListCreateView(generics.ListCreateAPIView):
@@ -35,3 +36,8 @@ class ComentarioDetailView(generics.RetrieveUpdateDestroyAPIView):
 class ComentarioListView(generics.ListAPIView):
     queryset = Comentario.objects.all()
     serializer_class = ComentarioSerializer
+
+class RegistroView(generics.CreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = RegistroSerializer
+    permission_classes = [permissions.AllowAny]  # cualquiera puede registrarse, sin login
