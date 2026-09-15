@@ -2,25 +2,9 @@ import { useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext'
 import Alert from '../../components/ui/Alert'
-import { ROLES, ROLE_LABELS } from '../../utils/constants'
 
-const ROLE_OPTIONS = [
-  {
-    value: ROLES.SOLICITANTE,
-    label: ROLE_LABELS.SOLICITANTE,
-    description: 'Crea tickets y da seguimiento a tus solicitudes',
-    icon: '📋',
-  },
-  {
-    value: ROLES.AGENTE,
-    label: ROLE_LABELS.AGENTE,
-    description: 'Gestiona tickets, estados y prioridades',
-    icon: '🛠️',
-  },
-]
 
 export default function LoginPage() {
-  const [role, setRole] = useState(ROLES.SOLICITANTE)
   const [form, setForm] = useState({ username: '', password: '' })
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState(null)
@@ -40,7 +24,7 @@ export default function LoginPage() {
     setError(null)
 
     try {
-      await login({ ...form, role })
+      await login({ ...form })
       navigate(from, { replace: true })
     } catch (err) {
       const message = err.response?.data?.detail
@@ -59,23 +43,6 @@ export default function LoginPage() {
         <p>Accede según tu rol en el sistema</p>
       </div>
 
-      <div className="role-selector" role="radiogroup" aria-label="Tipo de usuario">
-        {ROLE_OPTIONS.map((option) => (
-          <button
-            key={option.value}
-            type="button"
-            role="radio"
-            aria-checked={role === option.value}
-            className={`role-selector__option ${role === option.value ? 'role-selector__option--active' : ''}`}
-            onClick={() => setRole(option.value)}
-          >
-            <span className="role-selector__icon" aria-hidden="true">{option.icon}</span>
-            <span className="role-selector__label">{option.label}</span>
-            <span className="role-selector__desc">{option.description}</span>
-          </button>
-        ))}
-      </div>
-
       <form className="form" onSubmit={handleSubmit}>
         <div className="form__group">
           <label htmlFor="username">Usuario</label>
@@ -86,7 +53,7 @@ export default function LoginPage() {
             autoComplete="username"
             value={form.username}
             onChange={handleChange}
-            placeholder="tu_usuario"
+            placeholder="Ingresa tu usuario"
             required
           />
         </div>
@@ -108,13 +75,13 @@ export default function LoginPage() {
         {error && <Alert variant="error">{error}</Alert>}
 
         <button type="submit" className="btn btn--primary btn--full" disabled={submitting}>
-          {submitting ? 'Ingresando...' : `Entrar como ${ROLE_LABELS[role]}`}
+          {submitting ? 'Ingresando...' : `Iniciar sesión`}
         </button>
       </form>
 
       <p className="auth-card__footer">
         ¿No tienes cuenta?{' '}
-        <Link to="/registro" state={{ role }}>Regístrate aquí</Link>
+        <Link to="/registro">Regístrate aquí</Link>
       </p>
     </div>
   )
