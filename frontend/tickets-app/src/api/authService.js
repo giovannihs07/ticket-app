@@ -1,13 +1,11 @@
 import client from './client'
 
 export const login = (credentials) =>
-  client.post('/auth/login/', credentials)
+  client.post('/login/', credentials)
 
 export const register = (data) =>
-  client.post('/auth/register/', data)
+  client.post('registro/', data)
 
 export const getCurrentUser = () =>
-  client.get('/auth/me/')
+  client.get('/me/')
 
-export const logout = () =>
-  client.post('/auth/logout/')

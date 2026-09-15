@@ -6,8 +6,7 @@ import TicketFormPage from './pages/TicketFormPage'
 import TicketDetailPage from './pages/TicketDetailPage'
 import LoginPage from './pages/auth/LoginPage'
 import RegisterPage from './pages/auth/RegisterPage'
-// import ProtectedRoute from './routes/ProtectedRoute'
-// import { ROLES } from './utils/constants'
+import ProtectedRoute from './routes/ProtectedRoute'
 
 function App() {
   return (
@@ -18,10 +17,9 @@ function App() {
       </Route>
 
       <Route element={<Layout />}>
-        <Route path="/" element={<TicketListPage />} />
-        <Route path="/tickets/:id" element={<TicketDetailPage />} />
-        {/* Activar ProtectedRoute cuando el backend exponga /api/auth/ */}
-        <Route path="/tickets/nuevo" element={<TicketFormPage />} />
+        <Route path="/" element={<ProtectedRoute><TicketListPage /></ProtectedRoute>} />
+        <Route path="/tickets/:id" element={<ProtectedRoute><TicketDetailPage /></ProtectedRoute>} />
+        <Route path="/tickets/nuevo" element={<ProtectedRoute><TicketFormPage /></ProtectedRoute>} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Route>
     </Routes>

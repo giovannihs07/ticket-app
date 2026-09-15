@@ -31,6 +31,7 @@ export function AuthProvider({ children }) {
 
   useEffect(() => {
     if (!token) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setLoading(false)
       return
     }
@@ -46,24 +47,27 @@ export function AuthProvider({ children }) {
 
   const login = async (credentials) => {
     const res = await authService.login(credentials)
-    persistSession(res.data.access, res.data.user)
-    return res.data.user
+    const accessToken = res.data.access
+
+    // el interceptor de axios (client.js) lee el token de localStorage en cada
+    // request, así que hay que guardarlo ANTES de llamar a getCurrentUser()
+    localStorage.setItem(TOKEN_KEY, accessToken)
+    setToken(accessToken)
+
+    const meRes = await authService.getCurrentUser()
+    persistSession(accessToken, meRes.data)
+    return meRes.data
   }
 
   const register = async (data) => {
-    const res = await authService.register(data)
-    persistSession(res.data.access, res.data.user)
-    return res.data.user
+    // el backend de registro solo crea el usuario, no devuelve tokens:
+    // reutilizamos login() con las mismas credenciales para obtener sesión
+    await authService.register(data)
+    return login({ username: data.username, password: data.password })
   }
 
   const logout = async () => {
-    try {
-      await authService.logout()
-    } catch {
-      // Ignorar si el backend aún no implementa logout
-    } finally {
-      clearSession()
-    }
+    clearSession()
   }
 
   const value = useMemo(() => ({
@@ -81,6 +85,7 @@ export function AuthProvider({ children }) {
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function useAuth() {
   const context = useContext(AuthContext)
   if (!context) {
