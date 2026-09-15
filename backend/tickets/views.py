@@ -1,5 +1,5 @@
 from rest_framework import generics, permissions
-from .models import Ticket, Comentario
+from .models import Ticket, Comentario, Perfil
 from .serializers import TicketSerializer, ComentarioSerializer, RegistroSerializer
 from .filters import TicketFilter
 from django.contrib.auth.models import User
@@ -8,16 +8,33 @@ from django.contrib.auth.models import User
 class TicketListCreateView(generics.ListCreateAPIView):
     """GET /api/tickets/  -> listar (con filtros)
        POST /api/tickets/ -> crear"""
-    queryset = Ticket.objects.all()
     serializer_class = TicketSerializer
     filterset_class = TicketFilter
+
+    permission_classes = [permissions.IsAuthenticated]
+ 
+    def get_queryset(self):
+        user = self.request.user
+        if user.perfil.rol == Perfil.Rol.AGENTE:
+            return Ticket.objects.all()
+        return Ticket.objects.filter(creado_por=user)
+ 
+    def perform_create(self, serializer):
+        serializer.save(creado_por=self.request.user)
 
 
 class TicketDetailView(generics.RetrieveUpdateDestroyAPIView):
     """GET /api/tickets/<id>/   -> detalle del ticket
        PATCH /api/tickets/<id>/ -> actualizar ticket por estado o prioridad"""
-    queryset = Ticket.objects.all()
+    
     serializer_class = TicketSerializer
+    permission_classes = [permissions.IsAuthenticated]
+ 
+    def get_queryset(self):
+        user = self.request.user
+        if user.perfil.rol == Perfil.Rol.AGENTE:
+            return Ticket.objects.all()
+        return Ticket.objects.filter(creado_por=user)
 
 class ComentarioCreateView(generics.ListCreateAPIView):
     """POST /api/tickets/<ticket_id>/comentarios/ -> agregar comentario"""

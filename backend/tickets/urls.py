@@ -9,6 +9,6 @@ urlpatterns = [
     path('comentarios/<int:pk>/', ComentarioDetailView.as_view(), name='comentario-detail'),
     path('comentarios/', ComentarioListView.as_view(), name='comentario-list'),
     path('registro/', RegistroView.as_view(), name='registro'),
-    path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]
