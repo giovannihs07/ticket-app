@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 class Perfil(models.Model):
     class Rol(models.TextChoices):
@@ -51,4 +53,10 @@ class Comentario(models.Model):
     def __str__(self):
         return f"Comentario #{self.id} de Ticket {self.ticket_id}"
 
-
+@receiver(post_save, sender=User)
+def crear_perfil_automatico(sender, instance, created, **kwargs):
+    """Crea un Perfil automáticamente cada vez que se crea un User (incluye
+    createsuperuser y el panel /admin/), para que nunca falte user.perfil."""
+    if created and not hasattr(instance, 'perfil'):
+        rol = Perfil.Rol.AGENTE if instance.is_superuser else Perfil.Rol.SOLICITANTE
+        Perfil.objects.create(user=instance, rol=rol)

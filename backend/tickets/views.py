@@ -1,6 +1,6 @@
 from rest_framework import generics, permissions
 from .models import Ticket, Comentario, Perfil
-from .serializers import TicketSerializer, ComentarioSerializer, RegistroSerializer
+from .serializers import TicketSerializer, ComentarioSerializer, RegistroSerializer, UserSerializer
 from .filters import TicketFilter
 from django.contrib.auth.models import User
 
@@ -58,3 +58,11 @@ class RegistroView(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = RegistroSerializer
     permission_classes = [permissions.AllowAny]  # cualquiera puede registrarse, sin login
+
+class MeView(generics.RetrieveAPIView):
+    """GET /api/me/ -> datos del usuario autenticado (id, username, email, role)"""
+    serializer_class = UserSerializer
+    permission_classes = [permissions.IsAuthenticated]
+ 
+    def get_object(self):
+        return self.request.user

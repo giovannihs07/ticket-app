@@ -34,5 +34,14 @@ class RegistroSerializer(serializers.ModelSerializer):
             email=validated_data.get('email', ''),
             password=validated_data['password'],
         )
-        Perfil.objects.create(user=user, rol=rol)
+        user.perfil.rol = rol
+        user.perfil.save()
         return user
+
+class UserSerializer(serializers.ModelSerializer):
+    """Representa al usuario autenticado hacia el frontend."""
+    role = serializers.CharField(source='perfil.rol', read_only=True)
+ 
+    class Meta:
+        model = User
+        fields = ['id', 'username', 'email', 'role']
