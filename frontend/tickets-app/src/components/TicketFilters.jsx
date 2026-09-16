@@ -25,6 +25,28 @@ export default function TicketFilters({ filters, onChange }) {
           <option value="ALTA">Alta</option>
         </select>
       </div>
+
+      <div className="filters__group">
+        <label htmlFor="filter-created-after">Creado desde</label>
+        <input
+          id="filter-created-after"
+          name="created_after"
+          type="date"
+          value={filters.created_after || ''}
+          onChange={handleChange}
+        />
+      </div>
+
+      <div className="filters__group">
+        <label htmlFor="filter-created-before">Creado hasta</label>
+        <input
+          id="filter-created-before"
+          name="created_before"
+          type="date"
+          value={filters.created_before || ''}
+          onChange={handleChange}
+        />
+      </div>
     </div>
   )
 }

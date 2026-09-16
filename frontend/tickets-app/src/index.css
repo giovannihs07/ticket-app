@@ -338,7 +338,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 .form__group input,
 .form__group textarea,
 .form__group select,
-.filters select {
+.filters select,
+.filters input {
   width: 100%;
   padding: 0.625rem 0.875rem;
   border: 1px solid var(--border-strong);
@@ -353,7 +354,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 .form__group input:focus,
 .form__group textarea:focus,
 .form__group select:focus,
-.filters select:focus {
+.filters select:focus,
+.filters input:focus {
   outline: none;
   border-color: var(--primary);
   box-shadow: 0 0 0 3px var(--primary-light);
@@ -596,6 +598,12 @@ ul { margin: 0; padding: 0; list-style: none; }
   grid-template-columns: 1fr 340px;
   gap: 1.25rem;
   align-items: start;
+}
+
+.ticket-detail__main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 
 @media (max-width: 900px) {
