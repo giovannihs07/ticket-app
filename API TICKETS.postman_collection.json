@@ -1,0 +1,1372 @@
+{
+  "info": {
+    "_postman_id": "5f500e3c-aa9d-4088-b01c-f4daf925cab0",
+    "name": "API TICKETS",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "34121954"
+  },
+  "item": [
+    {
+      "name": "Registro Agente",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"username\": \"Agente1\",\r\n  \"email\": \"Agente1@correo.com\",\r\n  \"password\": \"ClaveSegura123\",\r\n  \"rol\": \"AGENTE\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/registro/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "registro",
+            ""
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Registro exitoso",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"username\": \"Agente1\",\r\n  \"email\": \"Agente1@correo.com\",\r\n  \"password\": \"ClaveSegura123\",\r\n  \"rol\": \"AGENTE\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/registro/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "registro",
+                ""
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Date",
+              "value": "Wed, 16 Sep 2026 20:37:41 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "WSGIServer/0.2 CPython/3.13.12"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept, origin"
+            },
+            {
+              "key": "Allow",
+              "value": "POST, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Length",
+              "value": "71"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"username\": \"Agente1\",\n    \"email\": \"Agente1@correo.com\",\n    \"rol\": \"SOLICITANTE\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Login Agente",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"username\": \"Agente1\",\r\n  \"password\": \"ClaveSegura123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/login/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "login",
+            ""
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Login de agente exitoso",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"username\": \"Agente1\",\r\n  \"password\": \"ClaveSegura123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/login/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "login",
+                ""
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Date",
+              "value": "Wed, 16 Sep 2026 20:39:03 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "WSGIServer/0.2 CPython/3.13.12"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept, origin"
+            },
+            {
+              "key": "Allow",
+              "value": "POST, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Length",
+              "value": "489"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc4OTY3NzU0MywiaWF0IjoxNzg5NTkxMTQzLCJqdGkiOiI3MDQ1NTg5MzUzZWY0NzlkOGFhY2UyM2NmZjFkYjg0ZiIsInVzZXJfaWQiOiI2In0.h-QjJJ22ksYJoUwBuGEe6VXAoJnxQSC5ywzXOjVwJAs\",\n    \"access\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzg5NTk4MzQzLCJpYXQiOjE3ODk1OTExNDMsImp0aSI6ImJiYzA0ZDE1OTI1YTRkOGM5YmY3ZWM2MThlZGI0OTAyIiwidXNlcl9pZCI6IjYifQ.vLCf-F5qhwUXdR06ZfP4PEIYRaZAGIjI5eRdlqgYpUk\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Registro Solicitante",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"username\": \"solicitante4\",\r\n  \"email\": \"solicitante4@sersocial.com\",\r\n  \"password\": \"ClaveSegura123\",\r\n  \"rol\": \"SOLICITANTE\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/registro/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "registro",
+            ""
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Registro exitoso",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"username\": \"solicitante4\",\r\n  \"email\": \"solicitante4@sersocial.com\",\r\n  \"password\": \"ClaveSegura123\",\r\n  \"rol\": \"SOLICITANTE\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/registro/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "registro",
+                ""
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Date",
+              "value": "Wed, 16 Sep 2026 20:41:14 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "WSGIServer/0.2 CPython/3.13.12"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept, origin"
+            },
+            {
+              "key": "Allow",
+              "value": "POST, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Length",
+              "value": "84"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"username\": \"solicitante4\",\n    \"email\": \"solicitante4@sersocial.com\",\n    \"rol\": \"SOLICITANTE\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Crear ticket",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzg5NTk4NjAwLCJpYXQiOjE3ODk1OTE0MDAsImp0aSI6IjkxMmNhNWQ0MmYyYjRmY2JhNWYwOWQ4Y2FjYzMyN2EzIiwidXNlcl9pZCI6IjYifQ.o3_XIvIUblDGEQmosBbY43uA97YIoNhN_PfiX6X7Pgs",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"titulo\": \"No puedo iniciar sesión\",\r\n  \"descripcion\": \"Al intentar iniciar sesión aparece error 500\",\r\n  \"categoria\": \"Soporte técnico\",\r\n  \"prioridad\": \"ALTA\",\r\n  \"estado\": \"ABIERTO\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/tickets/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "tickets",
+            ""
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Crear ticket exitoso",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"titulo\": \"No puedo iniciar sesión\",\r\n  \"descripcion\": \"Al intentar iniciar sesión aparece error 500\",\r\n  \"categoria\": \"Soporte técnico\",\r\n  \"prioridad\": \"ALTA\",\r\n  \"estado\": \"ABIERTO\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/tickets/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "tickets",
+                ""
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Date",
+              "value": "Wed, 16 Sep 2026 20:49:44 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "WSGIServer/0.2 CPython/3.13.12"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept, origin"
+            },
+            {
+              "key": "Allow",
+              "value": "GET, POST, HEAD, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Length",
+              "value": "311"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": 8,\n    \"titulo\": \"No puedo iniciar sesión\",\n    \"descripcion\": \"Al intentar iniciar sesión aparece error 500\",\n    \"categoria\": \"Soporte técnico\",\n    \"prioridad\": \"ALTA\",\n    \"estado\": \"ABIERTO\",\n    \"created_at\": \"2026-09-16T15:49:44.814388-05:00\",\n    \"updated_at\": \"2026-09-16T15:49:44.814431-05:00\",\n    \"comentarios\": [],\n    \"creado_por\": \"Agente1\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Crear comentario",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzg5NTk4NjAwLCJpYXQiOjE3ODk1OTE0MDAsImp0aSI6IjkxMmNhNWQ0MmYyYjRmY2JhNWYwOWQ4Y2FjYzMyN2EzIiwidXNlcl9pZCI6IjYifQ.o3_XIvIUblDGEQmosBbY43uA97YIoNhN_PfiX6X7Pgs",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"titulo\": \"No puedo iniciar sesión\",\r\n  \"descripcion\": \"Al intentar iniciar sesión aparece error 500\",\r\n  \"categoria\": \"Soporte técnico\",\r\n  \"prioridad\": \"ALTA\",\r\n  \"estado\": \"ABIERTO\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/tickets/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "tickets",
+            ""
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Crear comentario exitoso",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"titulo\": \"Actualización del caso\",\r\n  \"descripcion\": \"Se escaló el ticket al equipo de desarrollo\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/tickets/8/comentarios/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "tickets",
+                "8",
+                "comentarios",
+                ""
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Date",
+              "value": "Wed, 16 Sep 2026 21:07:09 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "WSGIServer/0.2 CPython/3.13.12"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept, origin"
+            },
+            {
+              "key": "Allow",
+              "value": "GET, POST, HEAD, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Length",
+              "value": "157"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": 10,\n    \"titulo\": \"Actualización del caso\",\n    \"descripcion\": \"Se escaló el ticket al equipo de desarrollo\",\n    \"fecha_registro\": \"2026-09-16T16:07:09.171562-05:00\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Listar tickets",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzg5NTk4NjAwLCJpYXQiOjE3ODk1OTE0MDAsImp0aSI6IjkxMmNhNWQ0MmYyYjRmY2JhNWYwOWQ4Y2FjYzMyN2EzIiwidXNlcl9pZCI6IjYifQ.o3_XIvIUblDGEQmosBbY43uA97YIoNhN_PfiX6X7Pgs",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/tickets/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "tickets",
+            ""
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Obtener todos los tickets",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/tickets/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "tickets",
+                ""
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Date",
+              "value": "Wed, 16 Sep 2026 20:52:28 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "WSGIServer/0.2 CPython/3.13.12"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept, origin"
+            },
+            {
+              "key": "Allow",
+              "value": "GET, POST, HEAD, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Length",
+              "value": "1907"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n    {\n        \"id\": 5,\n        \"titulo\": \"No carga el correo institucional\",\n        \"descripcion\": \"Al intentar iniciar sesión aparece error 500\",\n        \"categoria\": \"Soporte técnico\",\n        \"prioridad\": \"BAJA\",\n        \"estado\": \"EN_PROGRESO\",\n        \"created_at\": \"2026-09-14T22:04:35.441011-05:00\",\n        \"updated_at\": \"2026-09-14T23:03:44.004034-05:00\",\n        \"comentarios\": [\n            {\n                \"id\": 7,\n                \"titulo\": \"Actualización del caso\",\n                \"descripcion\": \"Se escaló el ticket al equipo de infraestructura\",\n                \"fecha_registro\": \"2026-09-14T22:10:28.911342-05:00\"\n            }\n        ],\n        \"creado_por\": \"solicitante1\"\n    },\n    {\n        \"id\": 6,\n        \"titulo\": \"Implementar manejo de sesiones en React\",\n        \"descripcion\": \"Hay que implementar la funcionalidad de roles y autenticación en React consumiendo los endpoints implementados en el backend con django\",\n        \"categoria\": \"Software\",\n        \"prioridad\": \"ALTA\",\n        \"estado\": \"EN_PROGRESO\",\n        \"created_at\": \"2026-09-14T23:00:58.236096-05:00\",\n        \"updated_at\": \"2026-09-14T23:04:03.521623-05:00\",\n        \"comentarios\": [\n            {\n                \"id\": 8,\n                \"titulo\": \"Información del caso\",\n                \"descripcion\": \"Qué ha pasado con el caso, ya se le asignó un desarrollador a esta funcionalidad?\",\n                \"fecha_registro\": \"2026-09-14T23:02:41.321119-05:00\"\n            },\n            {\n                \"id\": 9,\n                \"titulo\": \"Actualización de caso\",\n                \"descripcion\": \"Ya se le asignó un desarrollador a esta funcionalidad\",\n                \"fecha_registro\": \"2026-09-14T23:45:59.303026-05:00\"\n            }\n        ],\n        \"creado_por\": \"solicitante3\"\n    },\n    {\n        \"id\": 7,\n        \"titulo\": \"Implementar tests de la aplicación\",\n        \"descripcion\": \"Se debe escribir los tests para la aplicación\",\n        \"categoria\": \"Software\",\n        \"prioridad\": \"MEDIA\",\n        \"estado\": \"EN_PROGRESO\",\n        \"created_at\": \"2026-09-16T12:04:38.626744-05:00\",\n        \"updated_at\": \"2026-09-16T12:06:59.876934-05:00\",\n        \"comentarios\": [],\n        \"creado_por\": \"solicitante3\"\n    },\n    {\n        \"id\": 8,\n        \"titulo\": \"No puedo iniciar sesión\",\n        \"descripcion\": \"Al intentar iniciar sesión aparece error 500\",\n        \"categoria\": \"Soporte técnico\",\n        \"prioridad\": \"ALTA\",\n        \"estado\": \"ABIERTO\",\n        \"created_at\": \"2026-09-16T15:49:44.814388-05:00\",\n        \"updated_at\": \"2026-09-16T15:49:44.814431-05:00\",\n        \"comentarios\": [],\n        \"creado_por\": \"Agente1\"\n    }\n]"
+        }
+      ]
+    },
+    {
+      "name": "Actualizar tickets",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzg5NTk4NjAwLCJpYXQiOjE3ODk1OTE0MDAsImp0aSI6IjkxMmNhNWQ0MmYyYjRmY2JhNWYwOWQ4Y2FjYzMyN2EzIiwidXNlcl9pZCI6IjYifQ.o3_XIvIUblDGEQmosBbY43uA97YIoNhN_PfiX6X7Pgs",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"estado\": \"EN_PROGRESO\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/tickets/5/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "tickets",
+            "5",
+            ""
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Actualización del estado exitosa de un ticket",
+          "originalRequest": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"estado\": \"EN_PROGRESO\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/tickets/5/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "tickets",
+                "5",
+                ""
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Date",
+              "value": "Wed, 16 Sep 2026 21:00:31 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "WSGIServer/0.2 CPython/3.13.12"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept, origin"
+            },
+            {
+              "key": "Allow",
+              "value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Length",
+              "value": "489"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": 5,\n    \"titulo\": \"No carga el correo institucional\",\n    \"descripcion\": \"Al intentar iniciar sesión aparece error 500\",\n    \"categoria\": \"Soporte técnico\",\n    \"prioridad\": \"BAJA\",\n    \"estado\": \"EN_PROGRESO\",\n    \"created_at\": \"2026-09-14T22:04:35.441011-05:00\",\n    \"updated_at\": \"2026-09-16T16:00:31.411531-05:00\",\n    \"comentarios\": [\n        {\n            \"id\": 7,\n            \"titulo\": \"Actualización del caso\",\n            \"descripcion\": \"Se escaló el ticket al equipo de infraestructura\",\n            \"fecha_registro\": \"2026-09-14T22:10:28.911342-05:00\"\n        }\n    ],\n    \"creado_por\": \"solicitante1\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Listar tickets con filtros",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzg5NTk4NjAwLCJpYXQiOjE3ODk1OTE0MDAsImp0aSI6IjkxMmNhNWQ0MmYyYjRmY2JhNWYwOWQ4Y2FjYzMyN2EzIiwidXNlcl9pZCI6IjYifQ.o3_XIvIUblDGEQmosBbY43uA97YIoNhN_PfiX6X7Pgs",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/tickets/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "tickets",
+            ""
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Listar tickets con estado abierto",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/tickets/?estado=ABIERTO",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "tickets",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "estado",
+                  "value": "ABIERTO"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Date",
+              "value": "Wed, 16 Sep 2026 20:55:39 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "WSGIServer/0.2 CPython/3.13.12"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept, origin"
+            },
+            {
+              "key": "Allow",
+              "value": "GET, POST, HEAD, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Length",
+              "value": "313"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n    {\n        \"id\": 8,\n        \"titulo\": \"No puedo iniciar sesión\",\n        \"descripcion\": \"Al intentar iniciar sesión aparece error 500\",\n        \"categoria\": \"Soporte técnico\",\n        \"prioridad\": \"ALTA\",\n        \"estado\": \"ABIERTO\",\n        \"created_at\": \"2026-09-16T15:49:44.814388-05:00\",\n        \"updated_at\": \"2026-09-16T15:49:44.814431-05:00\",\n        \"comentarios\": [],\n        \"creado_por\": \"Agente1\"\n    }\n]"
+        },
+        {
+          "name": "Listar tickets con prioridad alta",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/tickets/?prioridad=ALTA",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "tickets",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "prioridad",
+                  "value": "ALTA"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Date",
+              "value": "Wed, 16 Sep 2026 20:56:32 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "WSGIServer/0.2 CPython/3.13.12"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept, origin"
+            },
+            {
+              "key": "Allow",
+              "value": "GET, POST, HEAD, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Length",
+              "value": "1091"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n    {\n        \"id\": 6,\n        \"titulo\": \"Implementar manejo de sesiones en React\",\n        \"descripcion\": \"Hay que implementar la funcionalidad de roles y autenticación en React consumiendo los endpoints implementados en el backend con django\",\n        \"categoria\": \"Software\",\n        \"prioridad\": \"ALTA\",\n        \"estado\": \"EN_PROGRESO\",\n        \"created_at\": \"2026-09-14T23:00:58.236096-05:00\",\n        \"updated_at\": \"2026-09-14T23:04:03.521623-05:00\",\n        \"comentarios\": [\n            {\n                \"id\": 8,\n                \"titulo\": \"Información del caso\",\n                \"descripcion\": \"Qué ha pasado con el caso, ya se le asignó un desarrollador a esta funcionalidad?\",\n                \"fecha_registro\": \"2026-09-14T23:02:41.321119-05:00\"\n            },\n            {\n                \"id\": 9,\n                \"titulo\": \"Actualización de caso\",\n                \"descripcion\": \"Ya se le asignó un desarrollador a esta funcionalidad\",\n                \"fecha_registro\": \"2026-09-14T23:45:59.303026-05:00\"\n            }\n        ],\n        \"creado_por\": \"solicitante3\"\n    },\n    {\n        \"id\": 8,\n        \"titulo\": \"No puedo iniciar sesión\",\n        \"descripcion\": \"Al intentar iniciar sesión aparece error 500\",\n        \"categoria\": \"Soporte técnico\",\n        \"prioridad\": \"ALTA\",\n        \"estado\": \"ABIERTO\",\n        \"created_at\": \"2026-09-16T15:49:44.814388-05:00\",\n        \"updated_at\": \"2026-09-16T15:49:44.814431-05:00\",\n        \"comentarios\": [],\n        \"creado_por\": \"Agente1\"\n    }\n]"
+        },
+        {
+          "name": "Listar tickets por fecha",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/tickets/?created_after=2026-09-01&created_before=2026-09-17",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "tickets",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "created_after",
+                  "value": "2026-09-01"
+                },
+                {
+                  "key": "created_before",
+                  "value": "2026-09-17"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Date",
+              "value": "Wed, 16 Sep 2026 20:57:42 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "WSGIServer/0.2 CPython/3.13.12"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept, origin"
+            },
+            {
+              "key": "Allow",
+              "value": "GET, POST, HEAD, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Length",
+              "value": "1907"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n    {\n        \"id\": 5,\n        \"titulo\": \"No carga el correo institucional\",\n        \"descripcion\": \"Al intentar iniciar sesión aparece error 500\",\n        \"categoria\": \"Soporte técnico\",\n        \"prioridad\": \"BAJA\",\n        \"estado\": \"EN_PROGRESO\",\n        \"created_at\": \"2026-09-14T22:04:35.441011-05:00\",\n        \"updated_at\": \"2026-09-14T23:03:44.004034-05:00\",\n        \"comentarios\": [\n            {\n                \"id\": 7,\n                \"titulo\": \"Actualización del caso\",\n                \"descripcion\": \"Se escaló el ticket al equipo de infraestructura\",\n                \"fecha_registro\": \"2026-09-14T22:10:28.911342-05:00\"\n            }\n        ],\n        \"creado_por\": \"solicitante1\"\n    },\n    {\n        \"id\": 6,\n        \"titulo\": \"Implementar manejo de sesiones en React\",\n        \"descripcion\": \"Hay que implementar la funcionalidad de roles y autenticación en React consumiendo los endpoints implementados en el backend con django\",\n        \"categoria\": \"Software\",\n        \"prioridad\": \"ALTA\",\n        \"estado\": \"EN_PROGRESO\",\n        \"created_at\": \"2026-09-14T23:00:58.236096-05:00\",\n        \"updated_at\": \"2026-09-14T23:04:03.521623-05:00\",\n        \"comentarios\": [\n            {\n                \"id\": 8,\n                \"titulo\": \"Información del caso\",\n                \"descripcion\": \"Qué ha pasado con el caso, ya se le asignó un desarrollador a esta funcionalidad?\",\n                \"fecha_registro\": \"2026-09-14T23:02:41.321119-05:00\"\n            },\n            {\n                \"id\": 9,\n                \"titulo\": \"Actualización de caso\",\n                \"descripcion\": \"Ya se le asignó un desarrollador a esta funcionalidad\",\n                \"fecha_registro\": \"2026-09-14T23:45:59.303026-05:00\"\n            }\n        ],\n        \"creado_por\": \"solicitante3\"\n    },\n    {\n        \"id\": 7,\n        \"titulo\": \"Implementar tests de la aplicación\",\n        \"descripcion\": \"Se debe escribir los tests para la aplicación\",\n        \"categoria\": \"Software\",\n        \"prioridad\": \"MEDIA\",\n        \"estado\": \"EN_PROGRESO\",\n        \"created_at\": \"2026-09-16T12:04:38.626744-05:00\",\n        \"updated_at\": \"2026-09-16T12:06:59.876934-05:00\",\n        \"comentarios\": [],\n        \"creado_por\": \"solicitante3\"\n    },\n    {\n        \"id\": 8,\n        \"titulo\": \"No puedo iniciar sesión\",\n        \"descripcion\": \"Al intentar iniciar sesión aparece error 500\",\n        \"categoria\": \"Soporte técnico\",\n        \"prioridad\": \"ALTA\",\n        \"estado\": \"ABIERTO\",\n        \"created_at\": \"2026-09-16T15:49:44.814388-05:00\",\n        \"updated_at\": \"2026-09-16T15:49:44.814431-05:00\",\n        \"comentarios\": [],\n        \"creado_por\": \"Agente1\"\n    }\n]"
+        },
+        {
+          "name": "Listar tickets por categoria",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/tickets/?categoria=Soporte técnico",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "tickets",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "categoria",
+                  "value": "Soporte técnico"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Date",
+              "value": "Wed, 16 Sep 2026 20:58:47 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "WSGIServer/0.2 CPython/3.13.12"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept, origin"
+            },
+            {
+              "key": "Allow",
+              "value": "GET, POST, HEAD, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Length",
+              "value": "803"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n    {\n        \"id\": 5,\n        \"titulo\": \"No carga el correo institucional\",\n        \"descripcion\": \"Al intentar iniciar sesión aparece error 500\",\n        \"categoria\": \"Soporte técnico\",\n        \"prioridad\": \"BAJA\",\n        \"estado\": \"EN_PROGRESO\",\n        \"created_at\": \"2026-09-14T22:04:35.441011-05:00\",\n        \"updated_at\": \"2026-09-14T23:03:44.004034-05:00\",\n        \"comentarios\": [\n            {\n                \"id\": 7,\n                \"titulo\": \"Actualización del caso\",\n                \"descripcion\": \"Se escaló el ticket al equipo de infraestructura\",\n                \"fecha_registro\": \"2026-09-14T22:10:28.911342-05:00\"\n            }\n        ],\n        \"creado_por\": \"solicitante1\"\n    },\n    {\n        \"id\": 8,\n        \"titulo\": \"No puedo iniciar sesión\",\n        \"descripcion\": \"Al intentar iniciar sesión aparece error 500\",\n        \"categoria\": \"Soporte técnico\",\n        \"prioridad\": \"ALTA\",\n        \"estado\": \"ABIERTO\",\n        \"created_at\": \"2026-09-16T15:49:44.814388-05:00\",\n        \"updated_at\": \"2026-09-16T15:49:44.814431-05:00\",\n        \"comentarios\": [],\n        \"creado_por\": \"Agente1\"\n    }\n]"
+        }
+      ]
+    },
+    {
+      "name": "Detalles de un ticket",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzg5NTk4NjAwLCJpYXQiOjE3ODk1OTE0MDAsImp0aSI6IjkxMmNhNWQ0MmYyYjRmY2JhNWYwOWQ4Y2FjYzMyN2EzIiwidXNlcl9pZCI6IjYifQ.o3_XIvIUblDGEQmosBbY43uA97YIoNhN_PfiX6X7Pgs",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/tickets/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "tickets",
+            ""
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Detalles de un ticket exitoso",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/tickets/5/",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "tickets",
+                "5",
+                ""
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Date",
+              "value": "Wed, 16 Sep 2026 20:54:14 GMT"
+            },
+            {
+              "key": "Server",
+              "value": "WSGIServer/0.2 CPython/3.13.12"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Vary",
+              "value": "Accept, origin"
+            },
+            {
+              "key": "Allow",
+              "value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Length",
+              "value": "489"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "same-origin"
+            },
+            {
+              "key": "Cross-Origin-Opener-Policy",
+              "value": "same-origin"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": 5,\n    \"titulo\": \"No carga el correo institucional\",\n    \"descripcion\": \"Al intentar iniciar sesión aparece error 500\",\n    \"categoria\": \"Soporte técnico\",\n    \"prioridad\": \"BAJA\",\n    \"estado\": \"EN_PROGRESO\",\n    \"created_at\": \"2026-09-14T22:04:35.441011-05:00\",\n    \"updated_at\": \"2026-09-14T23:03:44.004034-05:00\",\n    \"comentarios\": [\n        {\n            \"id\": 7,\n            \"titulo\": \"Actualización del caso\",\n            \"descripcion\": \"Se escaló el ticket al equipo de infraestructura\",\n            \"fecha_registro\": \"2026-09-14T22:10:28.911342-05:00\"\n        }\n    ],\n    \"creado_por\": \"solicitante1\"\n}"
+        }
+      ]
+    }
+  ]
+}
