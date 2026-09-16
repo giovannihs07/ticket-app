@@ -17,7 +17,7 @@ class TicketSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ticket
         fields = ['id', 'titulo', 'descripcion', 'categoria',
-                  'prioridad', 'estado', 'created_at', 'updated_at', 'comentarios']
+                  'prioridad', 'estado', 'created_at', 'updated_at', 'comentarios', 'creado_por']
         read_only_fields = ['id', 'created_at', 'updated_at']
 
     def get_creado_por(self, obj):
