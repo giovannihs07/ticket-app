@@ -12,12 +12,16 @@ class ComentarioSerializer(serializers.ModelSerializer):
 
 class TicketSerializer(serializers.ModelSerializer):
     comentarios = ComentarioSerializer(many=True, read_only=True)
+    creado_por = serializers.SerializerMethodField()
 
     class Meta:
         model = Ticket
         fields = ['id', 'titulo', 'descripcion', 'categoria',
                   'prioridad', 'estado', 'created_at', 'updated_at', 'comentarios']
         read_only_fields = ['id', 'created_at', 'updated_at']
+
+    def get_creado_por(self, obj):
+        return obj.creado_por.username if obj.creado_por else None
 
 class RegistroSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)

@@ -28,6 +28,12 @@ export default function TicketInfo({ ticket }) {
           <span className="ticket-info__meta-value">{ticket.categoria}</span>
         </div>
         <div className="ticket-info__meta-item">
+          <span className="ticket-info__meta-label">Creado por</span>
+          <span className="ticket-info__meta-value">
+            {ticket.creado_por || 'Sin registrar'}
+          </span>
+        </div>
+        <div className="ticket-info__meta-item">
           <span className="ticket-info__meta-label">Creado</span>
           <span className="ticket-info__meta-value">
             {new Date(ticket.created_at).toLocaleString()}
