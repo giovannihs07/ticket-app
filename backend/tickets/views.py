@@ -1,4 +1,5 @@
 from rest_framework import generics, permissions
+from rest_framework.exceptions import PermissionDenied
 from .models import Ticket, Comentario, Perfil
 from .serializers import TicketSerializer, ComentarioSerializer, RegistroSerializer, UserSerializer
 from .filters import TicketFilter
@@ -44,6 +45,11 @@ class TicketDetailView(generics.RetrieveUpdateDestroyAPIView):
         if user.perfil.rol == Perfil.Rol.AGENTE:
             return Ticket.objects.all()
         return Ticket.objects.filter(creado_por=user)
+
+    def perform_update(self, serializer):
+        if self.request.user.perfil.rol != Perfil.Rol.AGENTE:
+            raise PermissionDenied('Solo un agente puede modificar el estado o la prioridad.')
+        serializer.save()
 
 class ComentarioCreateView(generics.ListCreateAPIView):
     """POST /api/tickets/<ticket_id>/comentarios/ -> agregar comentario"""
