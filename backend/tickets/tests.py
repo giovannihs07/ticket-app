@@ -225,3 +225,13 @@ class ComentarioTests(BaseTicketTestCase):
         )
         response = self.client.get(f'/api/tickets/{otro_ticket.id}/comentarios/')
         self.assertEqual(len(response.data), 0)
+
+
+class HealthCheckTests(APITestCase):
+    """GET /api/health/"""
+
+    def test_health_check_retorna_200(self):
+        response = self.client.get('/api/health/')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data, {'status': 'ok'})
+

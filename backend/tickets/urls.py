@@ -1,8 +1,12 @@
 from django.urls import path
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
-from .views import TicketListCreateView, TicketDetailView, ComentarioCreateView, ComentarioDetailView, ComentarioListView, RegistroView, MeView
+from .views import (
+    TicketListCreateView, TicketDetailView, ComentarioCreateView,
+    ComentarioDetailView, ComentarioListView, RegistroView, MeView, health_check
+)
 
 urlpatterns = [
+    path('health/', health_check, name='health-check'),
     path('tickets/', TicketListCreateView.as_view(), name='ticket-list-create'),
     path('tickets/<int:pk>/', TicketDetailView.as_view(), name='ticket-detail'),
     path('tickets/<int:ticket_id>/comentarios/', ComentarioCreateView.as_view(), name='comentario-create'),

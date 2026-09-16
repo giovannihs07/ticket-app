@@ -1,9 +1,18 @@
 from rest_framework import generics, permissions
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.response import Response
 from rest_framework.exceptions import PermissionDenied
 from .models import Ticket, Comentario, Perfil
 from .serializers import TicketSerializer, ComentarioSerializer, RegistroSerializer, UserSerializer
 from .filters import TicketFilter
 from django.contrib.auth.models import User
+
+
+@api_view(['GET'])
+@permission_classes([permissions.AllowAny])
+def health_check(request):
+    """GET /api/health/ -> chequeo de estado para Docker y monitoreo"""
+    return Response({'status': 'ok'})
 
 
 class TicketListCreateView(generics.ListCreateAPIView):
