@@ -10,7 +10,6 @@ class TicketListCreateView(generics.ListCreateAPIView):
        POST /api/tickets/ -> crear"""
     serializer_class = TicketSerializer
     filterset_class = TicketFilter
-
     permission_classes = [permissions.IsAuthenticated]
  
     def get_queryset(self):
@@ -21,6 +20,16 @@ class TicketListCreateView(generics.ListCreateAPIView):
  
     def perform_create(self, serializer):
         serializer.save(creado_por=self.request.user)
+
+        """
+        En caso de que el solicitante no tenga permiso de asignar una prioridad o 
+        estado al ticket, se usan los valores por defecto del modelo (ABIERTO / MEDIA)
+        
+        if user.perfil.rol != Perfil.Rol.AGENTE:
+            serializer.validated_data.pop('estado', None)
+            serializer.validated_data.pop('prioridad', None)
+        serializer.save(creado_por=user)
+        """
 
 
 class TicketDetailView(generics.RetrieveUpdateDestroyAPIView):
