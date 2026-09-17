@@ -1,13 +1,13 @@
 # Mini Sistema de Tickets
 
-Sistema interno para registrar y gestionar tickets de soporte técnico, desarrollado con backend en **Django (Django REST Framework)** y frontend en **React (Vite)**, persistencia en **SQLite** y soporte completo de **Docker Compose**.
+Sistema interno para registrar y gestionar tickets de soporte técnico, desarrollado con backend en **Django (Django REST Framework)** y frontend en **React (Vite)**, persistencia en **SQLite** y soporte de **Docker Compose**.
 
 ---
 ## 🛠️ Tecnologías
 
-- **Backend:** Python 3.13 + Django 6 + Django REST Framework + Gunicorn
-- **Frontend:** React 19 (Vite) + React Router 7 + Axios + Nginx
-- **Base de Datos:** SQLite 3 (con soporte para volumen persistente)
+- **Backend:** Python 3.13 + Django 6 + Django REST Framework
+- **Frontend:** React 19 (Vite)
+- **Base de Datos:** SQLite 3 
 - **Autenticación:** JSON Web Tokens (JWT)
 - **Contenedores:** Docker & Docker Compose
 - **Control de versiones:** Git
@@ -75,7 +75,7 @@ docker compose down
 ## Opción 2: Ejecución local manual
 
 ### Requisitos
-- Python 3.12 o 3.13
+- Python 3.13.12 o superior
 - Node.js 18 o superior
 - Git
 
