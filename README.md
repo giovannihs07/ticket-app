@@ -3,7 +3,6 @@
 Sistema interno para registrar y gestionar tickets de soporte técnico, desarrollado con backend en **Django (Django REST Framework)** y frontend en **React (Vite)**, persistencia en **SQLite** y soporte completo de **Docker Compose**.
 
 ---
-
 ## 🛠️ Tecnologías
 
 - **Backend:** Python 3.13 + Django 6 + Django REST Framework + Gunicorn
@@ -12,7 +11,6 @@ Sistema interno para registrar y gestionar tickets de soporte técnico, desarrol
 - **Autenticación:** JSON Web Tokens (JWT)
 - **Contenedores:** Docker & Docker Compose
 - **Control de versiones:** Git
-
 ---
 
 ## 📁 Estructura del Proyecto
@@ -64,7 +62,6 @@ docker compose up --build
 
 Una vez levantado:
 - **Frontend Web:** [http://localhost:5173](http://localhost:5173)
-- **API REST Backend:** [http://localhost:8000/api/](http://localhost:8000/api/)
 - **Healthcheck:** [http://localhost:8000/api/health/](http://localhost:8000/api/health/)
 - **Panel Admin Django:** [http://localhost:8000/admin/](http://localhost:8000/admin/)
 
@@ -190,7 +187,7 @@ Permite probar todos los endpoints (Login JWT, Registro, Listado con filtros, Cr
 
 ## Documentación Adicional
 
-- [Arquitectura del Sistema y Decisiones Técnicas](docs/arquitectura.md)
-- [Guía Paso a Paso para Despliegue en Producción (Render y VPS)](docs/despliegue.md)
+- [Arquitectura del sistema y decisiones técnicas](docs/arquitectura.md)
+- [Guía paso a paso para despliegue en producción](docs/despliegue.md)
 
 ---
